@@ -1,8 +1,10 @@
-# React + Vite
+# Chas React Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live website link:
+https://chas-todolist.vercel.app/
 
-Currently, two official plugins are available:
+## Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [ViteJS](https://vitejs.dev/)
+- [ReactJS](https://react.dev/)
+- [React Icons](https://react-icons.github.io/react-icons/)
