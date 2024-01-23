@@ -5,38 +5,73 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
+input {
+  height: 30px;
+  border-radius: 3px;
+  border: solid 1px #a8a8a8;
+  font-size: 15px;
+  padding: 3px 10px;
+  min-width: 300px;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.todoitem:nth-child(even) {
+  background-color: #f8f8f8;
+}
+.todoitem {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 600px;
+  align-items: center;
+  border-bottom: solid 1px #e1e0e0;
+  padding: 4px 10px;
+}
+.todoitem div {
+  display: flex;
+}
+button.add {
+  border-radius: 0px;
+  border: solid 1px #a8a8a8;
+  padding: 8px 20px;
+  margin-left: 5px;
+}
+button.add:hover {
+  background-color: #ebebeb;
+  border: solid 1px #a8a8a8;
+}
+
+button.check,
+button.delete {
+  padding: 3px 5px;
+  border-radius: 0px;
+  margin-left: 3px;
+  background-color: transparent;
+  border: none;
+}
+button.check:hover,
+button.delete:hover {
+  padding: 3px 5px;
+  background-color: #ebebeb;
+  border-radius: 0px;
+  border: none;
+}
+button.delete svg {
+  color: red;
+  vertical-align: middle;
+}
+button.check svg {
+  color: rgb(53, 168, 0);
+  vertical-align: middle;
+}
+.todoitems {
+  text-align: left;
+  margin-top: 40px;
+}
+.footer {
+  margin-top: 80px;
+  font-size: 11px;
 }

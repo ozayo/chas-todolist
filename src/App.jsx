@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import { FaPlus, FaTrashAlt, FaTimes, FaCheck } from "react-icons/fa";
 
 const TodoItem = ({ todo, toggleDone, deleteTodo }) => {
   return (
-    <div>
+    <div className="todoitem">
       <span style={{ textDecoration: todo.done ? "line-through" : "none" }}>
         {todo.title}
       </span>
-      <button onClick={() => toggleDone(todo.id, !todo.done)}>
-        {todo.done ? "Undone" : "Done"}
-      </button>
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+      <div>
+        <button
+          className="check"
+          onClick={() => toggleDone(todo.id, !todo.done)}
+        >
+          {todo.done ? (
+            <>
+              <FaTimes />
+            </>
+          ) : (
+            <>
+              <FaCheck />
+            </>
+          )}
+        </button>
+        <button className="delete" onClick={() => deleteTodo(todo.id)}>
+          <FaTrashAlt />
+        </button>
+      </div>
     </div>
   );
 };
@@ -20,7 +36,7 @@ const App = () => {
   const [newTodoTitle, setNewTodoTitle] = useState("");
 
   useEffect(() => {
-    // localStorage'dan veriyi al
+    // take data from localStorage
     const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
       setTodos(JSON.parse(storedTodos));
@@ -28,7 +44,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // Her todos state'i güncellendiğinde localStorage'a kaydet
+    // When todo state update save to localStorage
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
@@ -65,15 +81,19 @@ const App = () => {
         value={newTodoTitle}
         onChange={(e) => setNewTodoTitle(e.target.value)}
       />
-      <button onClick={addTodo}>Add</button>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          toggleDone={toggleDone}
-          deleteTodo={deleteTodo}
-        />
-      ))}
+      <button className="add" onClick={addTodo}>
+        Add <FaPlus />
+      </button>
+      <div className="todoitems">
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            toggleDone={toggleDone}
+            deleteTodo={deleteTodo}
+          />
+        ))}
+      </div>
     </div>
   );
 };
